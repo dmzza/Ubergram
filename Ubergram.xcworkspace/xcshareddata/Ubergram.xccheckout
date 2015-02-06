@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6B38E8CE-2E24-4FEB-878B-E1E27B0C9876</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Ubergram</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1D03130CEFC4308DC6C72FB3EDBD16DCA02E221C</key>
+		<string>https://github.com/dmzza/Ubergram.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Ubergram.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1D03130CEFC4308DC6C72FB3EDBD16DCA02E221C</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/dmzza/Ubergram.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1D03130CEFC4308DC6C72FB3EDBD16DCA02E221C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1D03130CEFC4308DC6C72FB3EDBD16DCA02E221C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Ubergram</string>
+		</dict>
+	</array>
+</dict>
+</plist>

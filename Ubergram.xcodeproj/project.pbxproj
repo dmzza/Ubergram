@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13F419465C2CAA5BF629CD37 /* libPods-Ubergram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7022A77E7854C14032AA4676 /* libPods-Ubergram.a */; };
+		AA07F44A1A85454100F584B2 /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA07F4491A85454100F584B2 /* ImageCollectionViewCell.m */; };
+		AA07F44D1A85460300F584B2 /* ImageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA07F44C1A85460300F584B2 /* ImageCollectionViewController.m */; };
 		AA2C72FD1A8543DC00CEEB7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2C72FC1A8543DC00CEEB7C /* main.m */; };
 		AA2C73001A8543DC00CEEB7C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2C72FF1A8543DC00CEEB7C /* AppDelegate.m */; };
 		AA2C73031A8543DC00CEEB7C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2C73021A8543DC00CEEB7C /* ViewController.m */; };
@@ -27,6 +30,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		134FDD6024EBC38D4086CCAC /* Pods-Ubergram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ubergram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ubergram/Pods-Ubergram.debug.xcconfig"; sourceTree = "<group>"; };
+		5C6A1B35B0BD9D7755E240CE /* Pods-Ubergram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ubergram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ubergram/Pods-Ubergram.release.xcconfig"; sourceTree = "<group>"; };
+		7022A77E7854C14032AA4676 /* libPods-Ubergram.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ubergram.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA07F4481A85454100F584B2 /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
+		AA07F4491A85454100F584B2 /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewCell.m; sourceTree = "<group>"; };
+		AA07F44B1A85460300F584B2 /* ImageCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCollectionViewController.h; path = ../ImageCollectionViewController.h; sourceTree = "<group>"; };
+		AA07F44C1A85460300F584B2 /* ImageCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCollectionViewController.m; path = ../ImageCollectionViewController.m; sourceTree = "<group>"; };
 		AA2C72F71A8543DC00CEEB7C /* Ubergram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ubergram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2C72FB1A8543DC00CEEB7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA2C72FC1A8543DC00CEEB7C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13F419465C2CAA5BF629CD37 /* libPods-Ubergram.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +77,8 @@
 				AA2C72F91A8543DC00CEEB7C /* Ubergram */,
 				AA2C73131A8543DC00CEEB7C /* UbergramTests */,
 				AA2C72F81A8543DC00CEEB7C /* Products */,
+				D031A14E4CAAD5A9EA2CF454 /* Pods */,
+				FCABBC99D7BC7268F194BCD0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +102,10 @@
 				AA2C73071A8543DC00CEEB7C /* Images.xcassets */,
 				AA2C73091A8543DC00CEEB7C /* LaunchScreen.xib */,
 				AA2C72FA1A8543DC00CEEB7C /* Supporting Files */,
+				AA07F44B1A85460300F584B2 /* ImageCollectionViewController.h */,
+				AA07F44C1A85460300F584B2 /* ImageCollectionViewController.m */,
+				AA07F4481A85454100F584B2 /* ImageCollectionViewCell.h */,
+				AA07F4491A85454100F584B2 /* ImageCollectionViewCell.m */,
 			);
 			path = Ubergram;
 			sourceTree = "<group>";
@@ -119,6 +136,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D031A14E4CAAD5A9EA2CF454 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				134FDD6024EBC38D4086CCAC /* Pods-Ubergram.debug.xcconfig */,
+				5C6A1B35B0BD9D7755E240CE /* Pods-Ubergram.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FCABBC99D7BC7268F194BCD0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7022A77E7854C14032AA4676 /* libPods-Ubergram.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +160,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA2C731A1A8543DC00CEEB7C /* Build configuration list for PBXNativeTarget "Ubergram" */;
 			buildPhases = (
+				A2487E629EF2C718FDC75A4F /* Check Pods Manifest.lock */,
 				AA2C72F31A8543DC00CEEB7C /* Sources */,
 				AA2C72F41A8543DC00CEEB7C /* Frameworks */,
 				AA2C72F51A8543DC00CEEB7C /* Resources */,
+				12FC33BA10DEBAD5455FA81B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,6 +250,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		12FC33BA10DEBAD5455FA81B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ubergram/Pods-Ubergram-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2487E629EF2C718FDC75A4F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AA2C72F31A8543DC00CEEB7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -221,6 +290,8 @@
 			files = (
 				AA2C73031A8543DC00CEEB7C /* ViewController.m in Sources */,
 				AA2C73001A8543DC00CEEB7C /* AppDelegate.m in Sources */,
+				AA07F44A1A85454100F584B2 /* ImageCollectionViewCell.m in Sources */,
+				AA07F44D1A85460300F584B2 /* ImageCollectionViewController.m in Sources */,
 				AA2C72FD1A8543DC00CEEB7C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +414,7 @@
 		};
 		AA2C731B1A8543DC00CEEB7C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 134FDD6024EBC38D4086CCAC /* Pods-Ubergram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Ubergram/Info.plist;
@@ -353,6 +425,7 @@
 		};
 		AA2C731C1A8543DC00CEEB7C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C6A1B35B0BD9D7755E240CE /* Pods-Ubergram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Ubergram/Info.plist;
@@ -414,6 +487,7 @@
 				AA2C731C1A8543DC00CEEB7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA2C731D1A8543DC00CEEB7C /* Build configuration list for PBXNativeTarget "UbergramTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +496,7 @@
 				AA2C731F1A8543DC00CEEB7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
