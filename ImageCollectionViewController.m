@@ -7,6 +7,7 @@
 //
 
 #import "ImageCollectionViewController.h"
+#import "ImageCollectionViewCell.h"
 #import <AFNetworking/AFNetworking.h>
 
 @interface ImageCollectionViewController ()<NSURLConnectionDataDelegate>
@@ -15,7 +16,11 @@
 
 @implementation ImageCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"ImageCell";
+
+- (void)awakeFromNib {
+  self.images = [[NSMutableArray alloc] init];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,6 +32,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
+
+
 
   NSString *googleImagesURL = @"https://ajax.googleapis.com/ajax/services/search/images";
   NSDictionary *searchParameters = @{
@@ -58,21 +65,20 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
-    return 0;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
-    return 0;
+    return self.images.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell
-    
+    ImageCollectionViewCell *cell = (ImageCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"ResultCell" forIndexPath:indexPath];
+
+  cell.backgroundColor = [UIColor whiteColor];
+  cell.imageResultView.image = self.images[indexPath.item];
+
     return cell;
 }
 
@@ -107,14 +113,43 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 */
 
+//- (void)downloadImageAtURL:(NSString *)imageURL {
+//  NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+//  AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+//
+//  NSURL *URL = [NSURL URLWithString:imageURL];
+//  NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+//
+//  NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+//    NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+//    return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+//  } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+//    NSLog(@"File downloaded to: %@", filePath);
+//  }];
+//  [downloadTask resume];
+//}
+
+
+
 #pragma mark - NSURLConnection delegate
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
   // TODO: handle error
-  NSDictionary *imageData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+  NSError *error;
+  NSDictionary *imageData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+
+  if (error) {
+    NSLog(@"Data error: %@", error.description);
+  }
 
   NSArray *imageResults = imageData[@"responseData"][@"results"];
   NSLog(@"Number of results:%lu", (unsigned long)imageResults.count);
+
+  for (NSDictionary *result in imageResults) {
+    NSString *imageURL = result[@"unescapedUrl"];
+    [self.images addObject:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]]];
+  }
+  [self.collectionView reloadData];
 }
 
 
