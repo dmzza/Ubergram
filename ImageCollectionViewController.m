@@ -12,6 +12,8 @@
 
 @interface ImageCollectionViewController ()<NSURLConnectionDataDelegate>
 
+@property (strong, nonatomic) NSMutableData *resultData;
+
 @end
 
 @implementation ImageCollectionViewController
@@ -20,6 +22,7 @@ static NSString * const reuseIdentifier = @"ImageCell";
 
 - (void)awakeFromNib {
   self.images = [[NSMutableArray alloc] init];
+  self.resultData = [[NSMutableData alloc] init];
 }
 
 - (void)viewDidLoad {
@@ -34,17 +37,20 @@ static NSString * const reuseIdentifier = @"ImageCell";
     // Do any additional setup after loading the view.
 
 
-
-  NSString *googleImagesURL = @"https://ajax.googleapis.com/ajax/services/search/images";
-  NSDictionary *searchParameters = @{
-                                     @"v": @"1.0",
-                                     @"q": @"uber"
-                                     };
-  // TODO: handle error
-  NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:googleImagesURL parameters:searchParameters error:nil];
-
-
+  NSString *query = @"uber";
+  NSString *googleImagesURL = @"https://ajax.googleapis.com/ajax/services/search/images"; //[NSString stringWithFormat:@"https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=%@", query];
+    NSDictionary *searchParameters = @{
+                                       @"v": @"1.0",
+                                       @"q": query
+                                       };
+//   TODO: handle error
+    NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:googleImagesURL parameters:searchParameters error:nil];
+//  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:googleImagesURL]];
   [NSURLConnection connectionWithRequest:request delegate:self];
+
+
+
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -133,12 +139,13 @@ static NSString * const reuseIdentifier = @"ImageCell";
 
 #pragma mark - NSURLConnection delegate
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
   // TODO: handle error
   NSError *error;
-  NSDictionary *imageData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+  NSDictionary *imageData = [NSJSONSerialization JSONObjectWithData:self.resultData options:0 error:&error];
 
   if (error) {
+    NSLog(@"Data: %@", [[NSString alloc] initWithData:self.resultData encoding:NSUTF8StringEncoding]);
     NSLog(@"Data error: %@", error.description);
   }
 
@@ -152,7 +159,25 @@ static NSString * const reuseIdentifier = @"ImageCell";
   [self.collectionView reloadData];
 }
 
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+  [self.resultData appendData:data];
 
+}
+
+#pragma mark - UISearchBar delegate
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+  NSString *query = searchBar.text;
+  NSString *googleImagesURL = [NSString stringWithFormat:@"https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=%@", query];
+//  NSDictionary *searchParameters = @{
+//                                     @"v": @"1.0",
+//                                     @"q": query
+//                                     };
+  // TODO: handle error
+//  NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:googleImagesURL parameters:searchParameters error:nil];
+  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:googleImagesURL]];
+  [NSURLConnection connectionWithRequest:request delegate:self];
+}
 
 
 @end

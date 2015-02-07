@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageCollectionViewController : UICollectionViewController
+@interface ImageCollectionViewController : UICollectionViewController<UISearchBarDelegate>
 
 @property (strong, nonatomic) NSMutableArray *images;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
